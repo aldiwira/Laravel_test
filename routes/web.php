@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Web\AdminController;
+use App\Http\Controllers\web\HomeController;
+use App\Http\Controllers\web\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+route::get('/', [HomeController::class, 'index'])->name('index');
+route::post('/login', [HomeController::class, 'login'])->name('login');
+route::get('/register', [HomeController::class, 'index'])->name('register');
+route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+
+route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::resource('admin', AdminController::class);

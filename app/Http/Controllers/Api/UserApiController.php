@@ -116,12 +116,4 @@ class UserApiController extends Controller
             return $this->apiError(null, Response::HTTP_UNAUTHORIZED, "User id not found");
         }
     }
-
-    public function readMe()
-    {
-        return $this->apiSuccess(
-            auth()->user,
-            "Success get by token user"
-        );
-    }
 }

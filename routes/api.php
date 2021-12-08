@@ -26,5 +26,4 @@ Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('user', UserApiController::class)->names('api.users');
-    Route::post('user/me', [UserApiController::class, 'readMe'])->name('api.users.me');
 });
